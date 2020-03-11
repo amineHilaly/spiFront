@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PromotionService } from '../promotion.service';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { error } from 'highcharts';
+
 
 export interface PeriodicElement {
  
@@ -17,8 +19,16 @@ export class PromotionComponent implements OnInit {
 
   constructor(private promotionService: PromotionService) { }
 
-  ngOnInit() {
+  promotions : any = [];
 
+  ngOnInit() {
+    this.promotionService.getAllPromotion()
+    .subscribe((data)=>{
+      this.promotions = data;
+      console.log(this.promotions);
+    },err=>{
+      
+    })
   }
 
 }
