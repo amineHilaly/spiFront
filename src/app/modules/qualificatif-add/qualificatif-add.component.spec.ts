@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { QualificatifComponent } from './qualificatif.component';
+import { QualificatifAddComponent } from './qualificatif-add.component';
 
-describe('QualificatifComponent', () => {
-  let component: QualificatifComponent;
-  let fixture: ComponentFixture<QualificatifComponent>;
+describe('QualificatifAddComponent', () => {
+  let component: QualificatifAddComponent;
+  let fixture: ComponentFixture<QualificatifAddComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QualificatifComponent ]
+      declarations: [ QualificatifAddComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(QualificatifComponent);
+    fixture = TestBed.createComponent(QualificatifAddComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
