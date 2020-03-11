@@ -49,14 +49,19 @@
         <th>Année</th>
         <th>Sigle</th>
         <th>N.Enseignant</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let p of promotions;">
-        <td><a href="" >{{p.siglePromotion}}</a></td>
+        <td><a href="#">{{p.siglePromotion}}</a></td>
         <td>{{p.promotionPK.anneeUniversitaire}}</td>
-        <td>DOSI</td>
+        <td>{{p.formation.codeFormation}}</td>
         <td>john@example.com</td>
+        <td><button type="button" class="btn btn-danger" style="margin-right: 9px;" (click)="delete(p.promotionPK)">delete</button>
+          <button type="button" class="btn btn-success" style="margin-right: 9px;">info</button>
+          <button type="button" class="btn btn-info" style="margin-right: 9px;" >modefier</button></td>
+        
       </tr>
       
     </tbody>

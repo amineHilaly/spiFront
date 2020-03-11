@@ -22,13 +22,26 @@ export class PromotionComponent implements OnInit {
   promotions : any = [];
 
   ngOnInit() {
+    this.getAll();
+  }
+
+  private getAll() {
     this.promotionService.getAllPromotion()
-    .subscribe((data)=>{
-      this.promotions = data;
-      console.log(this.promotions);
-    },err=>{
-      
-    })
+      .subscribe((data) => {
+        this.promotions = data;
+        console.log(this.promotions);
+      }, err => {
+      });
+  }
+
+  delete(promotionPK){
+    this.promotionService.deletePromotion(promotionPK).subscribe((res: boolean) => {
+      if(res){
+        this.getAll();
+      }else{
+        alert("seppression impossible");
+      }
+    });
   }
 
 }
