@@ -5,6 +5,10 @@ import { PromotionComponent } from './modules/promotion/promotion.component';
 import { QualificatifComponent } from './modules/qualificatif/qualificatif.component';
 import { HomeComponent } from './modules/home/home.component';
 import { DialogInfoComponent } from './modules/dialog-info/dialog-info.component';
+import { QualificatifAddComponent } from './modules/qualificatif-add/qualificatif-add.component';
+import { QualificatifUpdateComponent } from './modules/qualificatif-update/qualificatif-update.component';
+
+
 
 const routes: Routes = [{
   path: '',
@@ -21,6 +25,14 @@ const routes: Routes = [{
   }, {
     path: 'Qualificatif',
     component: QualificatifComponent
+  },
+  {
+    path: 'Qualificatif/add',
+    component: QualificatifAddComponent
+  },
+  {
+    path: 'Qualificatif/update/:id/:min/:max',
+    component: QualificatifUpdateComponent
   },
   {
     path: '',
