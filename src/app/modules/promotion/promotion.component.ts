@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { PromotionService } from '../promotion.service';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatTableDataSource, MatPaginator, MatDialog} from '@angular/material';
+import { DialogComponent } from '../dialog/dialog.component';
+import { DialogInfoComponent } from '../dialog-info/dialog-info.component';
 import { error } from 'highcharts';
+import { Router } from '@angular/router';
 
 
 export interface PeriodicElement {
@@ -17,9 +20,11 @@ export interface PeriodicElement {
 export class PromotionComponent implements OnInit {
 
 
-  constructor(private promotionService: PromotionService) { }
+  constructor(private promotionService: PromotionService, private dialog: MatDialog, private router:Router) { }
 
   promotions : any = [];
+  detail : any =[];
+  etudiant: any=[];
 
   ngOnInit() {
     this.getAll();
@@ -44,4 +49,33 @@ export class PromotionComponent implements OnInit {
     });
   }
 
+  openDialog(){
+   this.dialog.open(DialogComponent);
+  }
+
+  DetailPromotion(promotionPK){
+    this.dialog.open(DialogInfoComponent);
+
+    this.promotionService.getdetailPromotion(promotionPK)
+      .subscribe((DetaiP) => {
+        this.detail = DetaiP;
+        console.log(this.detail);
+      }, err => {
+      });
+  }
+
+
+  Afficheretudiant(pk){
+    console.log();
+   this.promotionService.getEtudiantPromotion(pk)
+    .subscribe ( data=>{
+          this.etudiant=data;
+          console.log(this.etudiant);
+          DialogInfoComponent.etudiants=data;
+          this.dialog.open(DialogInfoComponent);
+    },err=>{
+      console.log(err)
+    })
+
+  }
 }

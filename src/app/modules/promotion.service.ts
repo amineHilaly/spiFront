@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +10,12 @@ import { Observable } from 'rxjs';
 export class PromotionService {
 
   public host:string="http://localhost:8080";
+  promotionPksend=null;
+  private messageSource = new BehaviorSubject(this.promotionPksend);
+  currentMessage = this.messageSource.asObservable();
+
+
+
   constructor(private http:HttpClient) { }
 
   getAllPromotion(){
@@ -25,14 +33,25 @@ export class PromotionService {
       let options = {
         headers: headers
       };
-      var requestoptions = new RequestOptions({
-        method: RequestMethod.Post,
-        url: this.apiURL + url,
-        headers: headers,
-        body: JSON.stringify(data)
-    })
+      
 
     return this.http.delete(this.host+"/Deletepromotion",promotionPK);
+    
   }
+
+  getdetailPromotion(promotionPK): Observable<any>{
+    console.log(promotionPK);
+    this.promotionPksend=promotionPK;
+    //this.messageSource.next(this.promotionPksend);
+    return this.http.post(this.host+"/promotions",promotionPK);
+  }
+
+
+  getEtudiantPromotion(pk): Observable<any>{
+    return this.http.post(this.host+"/Etudiantspromotion",pk);
+  }
+
+
+  
 }
 
