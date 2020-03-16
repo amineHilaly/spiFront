@@ -7,18 +7,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-<h2>Qualificatif List</h2>
+<h2>Liste de qualificatifs</h2>
 <div class="container">
-  <p>La table ci-dessous contient tous les qualificatifs</p>
-  <button mat-icon-button onclick="window.location.href = 'http://localhost:4200/Qualificatif/add';">
-    +
-  </button>
+  <div>La table ci-dessous contient tous les qualificatifs</div>
+  
   <table class="table">
     <thead>
       <tr>
         <th>Min</th>
         <th>Max</th>
-        <th></th>
+        <th><button class="btn btn-success col-xs-8"  mat-icon-button onclick="window.location.href = 'http://localhost:4200/Qualificatif/add';">
+          Ajouter
+        </button></th>
       </tr>
     </thead>
     <tbody>
@@ -26,11 +26,12 @@
         <td>{{q.minimal}}</td>
         <td>{{q.maximal}}</td>
         <td>
-          <button mat-icon-button (click)="update(q)">
-            M
+            
+          <button mat-icon-button class="btn btn-info" style="margin-right: 9px;" (click)="update(q)">
+              modifier
           </button>
-          <button mat-icon-button (click)="delete(q.idQualificatif)">
-            X
+          <button mat-icon-button class="btn btn-danger" style="margin-right: 9px;"  (click)="delete(q.idQualificatif)">
+            supprimer
           </button>
         </td>
       </tr>

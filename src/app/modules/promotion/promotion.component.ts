@@ -65,13 +65,14 @@ export class PromotionComponent implements OnInit {
   }
 
 
-  Afficheretudiant(pk){
+  Afficheretudiant(promotion){
     console.log();
-   this.promotionService.getEtudiantPromotion(pk)
+   this.promotionService.getEtudiantPromotion(promotion.promotionPK)
     .subscribe ( data=>{
           this.etudiant=data;
           console.log(this.etudiant);
           DialogInfoComponent.etudiants=data;
+          DialogInfoComponent.promotionDialog=promotion;
           this.dialog.open(DialogInfoComponent);
     },err=>{
       console.log(err)

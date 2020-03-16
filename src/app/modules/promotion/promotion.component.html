@@ -14,7 +14,7 @@
 <body>
 
 <div class="container">
-  <h2>DOSI promotions</h2>
+  <h2>Liste promotions</h2>
   <p>La table ci-dessous contient toutes les promotions Master Informatique ordonnées par année de creation</p>            
   <table class="table">
     <thead>
@@ -22,7 +22,7 @@
         <th>Code</th>
         <th>Année</th>
         <th>Sigle</th>
-        <th>N.Enseignant</th>
+        <th>Nombre Etudiant</th>
         <th></th>
       </tr>
     </thead>
@@ -31,10 +31,11 @@
         <td>{{p.siglePromotion}}</td>
         <td>{{p.promotionPK.anneeUniversitaire}}</td>
         <td>{{p.formation.codeFormation}}</td>
-        <td>john@example.com</td>
-        <td><button type="button" class="btn btn-danger" style="margin-right: 9px;" (click)="delete(p.promotionPK)">delete</button>
-          <button type="button" class="btn btn-success" style="margin-right: 9px;"(click)="Afficheretudiant(p.promotionPK)">info</button>
-          <button type="button" class="btn btn-info" style="margin-right: 9px;" >modefier</button></td>
+        <td>{{p.nbMaxEtudiant}}</td>
+        
+        <td><!--<<button type="button" class="btn btn-danger" style="margin-right: 9px;" (click)="delete(p.promotionPK)">delete</button>-->
+          <button type="button" class="btn btn-success" style="margin-right: 9px;"(click)="Afficheretudiant(p)">info</button>
+          <!--<<button type="button" class="btn btn-info" style="margin-right: 9px;" >modifier</button></td>-->
         
       </tr>
       

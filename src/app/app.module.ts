@@ -11,6 +11,11 @@ import { DialogInfoComponent } from './modules/dialog-info/dialog-info.component
 import { ReactiveFormsModule } from '@angular/forms';
 import { QualificatifAddComponent } from './modules/qualificatif-add/qualificatif-add.component';
 import { QualificatifUpdateComponent } from './modules/qualificatif-update/qualificatif-update.component';
+import { EtudiantListComponent } from './modules/etudiant-list/etudiant-list.component';
+import { EtudiantFormComponent } from './modules/etudiant-form/etudiant-form.component';
+import { DetailFormComponent } from './modules/detail-form/detail-form.component';
+import { EtudiantService } from './etudiant.service';
+import { EtudiantUpdateComponent } from './etudiant-update/etudiant-update.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,11 @@ import { QualificatifUpdateComponent } from './modules/qualificatif-update/quali
     DialogComponent,
     DialogInfoComponent,
     QualificatifAddComponent,
-    QualificatifUpdateComponent
+    QualificatifUpdateComponent,
+    EtudiantListComponent,
+    EtudiantFormComponent,
+    DetailFormComponent,
+    EtudiantUpdateComponent
   ],
   entryComponents: [DialogComponent,
     DialogInfoComponent],
@@ -31,7 +40,7 @@ import { QualificatifUpdateComponent } from './modules/qualificatif-update/quali
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [EtudiantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
